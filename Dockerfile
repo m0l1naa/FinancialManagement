@@ -17,7 +17,7 @@ FROM openjdk:17-jdk-slim
 WORKDIR /app
 
 # Copia el archivo JAR de tu aplicación desde la fase de construcción
-COPY --from=build /app/target/financial-API.jar .
+COPY --from=build /app/target/financial-0.0.1-SNAPSHOT.jar .
 
 # Copia el archivo de configuración
 COPY --from=build /app/src/main/resources/application.properties .
@@ -26,4 +26,4 @@ COPY --from=build /app/src/main/resources/application.properties .
 EXPOSE 8080
 
 # Define el comando de inicio de la aplicación
-CMD ["java", "-jar", "financial-API.jar"]
+CMD ["java", "-jar", "financial-0.0.1-SNAPSHOT.jar"]
